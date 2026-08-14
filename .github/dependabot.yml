@@ -1,5 +1,15 @@
 version: 2
 updates:
+  # Not grouped and not in the caller's `ecosystems:` input, so these bumps
+  # stay out of the automerge label path — they land as ordinary PRs
+  # waiting on human review, same as any other Actions bump.
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+    cooldown:
+      default-days: 7
+
   - package-ecosystem: gomod
     directory: /
     schedule:
