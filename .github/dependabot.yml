@@ -1,6 +1,21 @@
 version: 2
 updates:
+  # Not in the caller's `ecosystems:` input in dependabot-automerge-label.yml,
+  # so these bumps stay out of the automerge label path — they land as
+  # ordinary PRs waiting on human review, same as any other Actions bump.
   - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+    cooldown:
+      default-days: 7
+    groups:
+      minor-and-patch:
+        update-types:
+          - minor
+          - patch
+
+  - package-ecosystem: gomod
     directory: /
     schedule:
       interval: weekly
