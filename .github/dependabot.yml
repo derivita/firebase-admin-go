@@ -11,3 +11,20 @@ updates:
         update-types:
           - minor
           - patch
+  # Go modules: security updates only. open-pull-requests-limit: 0 turns off
+  # routine version-update PRs while Dependabot security updates keep coming.
+  - package-ecosystem: gomod
+    directory: /
+    schedule:
+      interval: weekly
+    open-pull-requests-limit: 0
+    groups:
+      # OpenTelemetry modules release as one set (otel/sdk vX.Y, contrib vA.B).
+      # This group batches the OTel modules that have advisories into one
+      # security PR. It does not pull in the rest of the set (e.g. contrib),
+      # and version updates are off here, so after an OTel security PR merges,
+      # bring the remaining OTel modules up to match by hand.
+      opentelemetry:
+        applies-to: security-updates
+        patterns:
+          - go.opentelemetry.io/*
