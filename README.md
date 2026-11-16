@@ -45,9 +45,9 @@ requests, code review feedback, and also pull requests.
 ## Supported Go Versions
 
 The Admin Go SDK is compatible with at least the three most recent, major Go releases.
-We currently support Go v1.25 and higher.
-[Continuous integration](https://github.com/firebase/firebase-admin-go/actions) system
-tests the code on Go v1.25 and v1.26.
+We currently support Go v1.26 and higher (the OpenTelemetry modules this SDK
+depends on require Go 1.26). [Continuous integration](https://github.com/firebase/firebase-admin-go/actions) system
+tests the code on Go v1.26.
 
 ## Documentation
 
